@@ -1,0 +1,53 @@
+﻿@model dep2E.Models.Empleado
+
+@{
+    ViewBag.Title = "Empleado";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Estás seguro de eliminar este registro?</h3>
+<div>
+    <h4>Empleado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_Empleado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nombre_Empleado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sueldo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sueldo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento.nombre_Departamento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.nombre_Departamento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirmar" class="btn btn-default" />
+            @Html.ActionLink("Cancelar", "Index")
+        </div>
+    }
+</div>

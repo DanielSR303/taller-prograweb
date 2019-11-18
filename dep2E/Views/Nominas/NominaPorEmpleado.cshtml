@@ -1,0 +1,33 @@
+﻿@model IEnumerable<dep2E.Models.Nomina>
+@{
+    ViewBag.Title = "NominaPorEmpleado";
+}
+
+<h2>NominasPorEmpleado</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Empleado.nombre_Empleado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sueldo_quincenal)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empleado.nombre_Empleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sueldo_quincenal)
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Regresar", "BuscarPorEmpleado", "Empleados", null, new { @class = "btn btn-primary" })
+</p>

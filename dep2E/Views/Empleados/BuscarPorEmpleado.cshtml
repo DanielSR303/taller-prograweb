@@ -1,0 +1,43 @@
+﻿@model IEnumerable<dep2E.Models.Empleado>
+@{
+    ViewBag.Title = "BuscarPorEmpleado";
+}
+
+<h2>BuscarPorEmpleado</h2>
+
+@using (Html.BeginForm("BuscarPorEmpleado", "Empleados", FormMethod.Get))
+{
+    <p>
+        Buscar por nombre:
+    </p>
+    <div class="form-group">
+        @Html.TextBox("nombre", null, htmlAttributes: new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Buscar" class="btn btn-default" />
+        @Html.ActionLink("Cancelar", "Index")
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_Empleado)
+        </th>
+        <th>Opcion</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_Empleado)
+            </td>
+
+            <td>
+                @Html.ActionLink("Ver Nomina", "NominaPorEmpleado", "Nominas", new { id = item.idEmpleado }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    }
+
+</table>
